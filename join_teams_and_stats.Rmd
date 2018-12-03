@@ -1,0 +1,20 @@
+---
+title: "join_teams_and_stats"
+output: html_notebook
+---
+
+# Training data
+
+```{r}
+library(tidyverse)
+
+power_5_teams_home <- read_csv("data/power_5_teams_2018_end_of_regular_season_home.csv")
+power_5_teams_away <- read_csv("data/power_5_teams_2018_end_of_regular_season_away.csv")
+power_5_games_2018 <- read_csv("data/power_5_games_2018_end_of_regular_season.csv")
+
+p5 <- left_join(power_5_games_2018, power_5_teams_home, by = "Home")
+p5 <- left_join(p5, power_5_teams_away, by = "Away")
+
+write.csv(p5, file = "power5.csv")
+
+```
