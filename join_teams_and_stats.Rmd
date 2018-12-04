@@ -32,3 +32,18 @@ write.csv(conf_champs, file = "conf_champs.csv")
 
 
 ```
+
+
+# Bowl Games
+
+```{r}
+
+bowl_games <- read_csv("data/bowl_games_2018.csv")
+
+bowl_champs <- left_join(bowl_games, power_5_teams_home, by = "Home")
+bowl_champs <- left_join(bowl_champs, power_5_teams_away, by = "Away")
+
+write.csv(bowl_champs, file = "bowl_champs.csv")
+
+
+```
