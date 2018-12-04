@@ -18,3 +18,17 @@ p5 <- left_join(p5, power_5_teams_away, by = "Away")
 write.csv(p5, file = "power5.csv")
 
 ```
+
+# Conference Championship games
+
+```{r}
+
+conf_champ_games <- read_csv("data/conf_champ_games_2018.csv")
+
+conf_champs <- left_join(conf_champ_games, power_5_teams_home, by = "Home")
+conf_champs <- left_join(conf_champs, power_5_teams_away, by = "Away")
+
+write.csv(conf_champs, file = "conf_champs.csv")
+
+
+```
